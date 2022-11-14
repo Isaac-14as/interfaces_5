@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+  <h1>Ваши контакты</h1>
+    {% for el in phones %}
+    <div class="alert alert-info m-2" >
+        <p>{{el.surname}} {{el.name}}, {{el.number}}
+            <button class="btn btn-secondary"><a class="p-2 text-dark" href="{% url 'change' el.id %}">Изменить</a></button>
+            <button class="btn btn-secondary"><a class="p-2 text-dark" href="{% url 'delete' el.id %}">Удалить</a></button>
+        </p>
+    </div>
+    {% endfor %}
+    <div>
+        <button class="btn btn-secondary"><a class="p-2 text-dark" href="{% url 'create' %}">Добавить запись</a></button>
+    </div>
+{% endblock %}

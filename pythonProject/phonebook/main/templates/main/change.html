@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Изменить запись
+{% endblock %}
+
+
+{% block content %}
+<h1>Изменить запись</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.name }}<br>
+        {{ form.surname }}<br>
+        {{ form.number }}<br>
+        <button type="submit" class="btn btn-secondary">Изменить запись</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}
